@@ -39,7 +39,7 @@
                Content="L O G I N"
                FontSize="30" Margin="98,28,108,11" Height="54" Grid.Column="1"/>
         <Label x:Name="lblCorreo"
-               Content="Correo Electronico:"
+               Content="Correo-JHRA:"
                FontSize="20"
                Grid.Row="1" Margin="0,29" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtCorreo"
@@ -50,7 +50,7 @@
                  />
 
         <Label x:Name="lblPassword"
-               Content="hola mundo:"
+               Content="Contraseñafgdgdfdd:"
                FontSize="20"
                Grid.Row="2" Margin="0,24,32,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
         <PasswordBox x:Name="txtPasword"

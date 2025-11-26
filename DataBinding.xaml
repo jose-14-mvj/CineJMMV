@@ -1,0 +1,135 @@
+﻿<Window x:Class="WpfAppNuevo1.DataBinding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppNuevo1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="440"
+         Icon="/imagenes/CJMMV.png"
+        Background="#0F394F"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="6">
+        <Grid.Background>
+            <ImageBrush ImageSource="/imagenes/fonCM.png" />
+
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblTitulo"
+               Content="CINE-JMMV"
+               Grid.ColumnSpan="2"
+               FontSize="19"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Label Content="Cartelera de Peliculas:"
+                   FontSize="20" 
+                   FontWeight="Bold"/>
+
+            <ListBox x:Name="lstBProductos" 
+                     Height="150"
+                     Background="Gray"
+                     Opacity="0.7"
+                     ItemsSource="{Binding ListaProductos}"
+                     SelectedItem="{Binding productoSel}"
+                     SelectionChanged="lstBProductos_SelectionChanged">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Nombre}" />
+                            <Label Content=" - " />
+                            <Label Content="{Binding Precio}" />
+                            <Label Content=" - " />
+                            <Label Content="{Binding Horario}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+        </StackPanel>
+
+        <!-- Nombre -->
+        <StackPanel Grid.Row="2">
+            <Label Content="Nombre P.: "
+                   FontSize="20"
+                   FontWeight="Bold"/>
+
+            <TextBox x:Name="txtNomProd"
+                     Text="{Binding productoSel.Nombre, Mode=TwoWay}"
+                     Height="40"
+                     Margin="5"
+                     FontSize="20"
+                     FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Precio -->
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Label Content="Precio:"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+
+            <TextBox x:Name="txtNomPrecio"
+                     Text="{Binding productoSel.Precio, Mode=TwoWay}"
+                     Height="40"
+                     Margin="5"
+                     FontSize="20"
+                     FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Horario -->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="1">
+            <Label Content="Hora de Duracion:"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+
+            <TextBox x:Name="txtHorario"
+                     Text="{Binding productoSel.Horario, Mode=TwoWay}"
+                     Height="40"
+                     Margin="5"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     />
+        </StackPanel>
+
+        <Button x:Name="btnAgregar"
+                Grid.Row="4" Grid.Column="1"
+                Margin="10,0"
+                FontSize="17"
+                FontWeight="Bold"
+                Content="Agregar Pelicula"
+                Click="btnAgregar_Click"/>
+
+        <Button x:Name="btnBorrar"
+                Grid.Row="4" Grid.Column="0"
+                Margin="10,0"
+                FontSize="17"
+                FontWeight="Bold"
+                Content="Borrar Pelicula"
+                Click="btnBorrar_Click"/>
+        <Button x:Name="btnVolver"
+         Grid.Row="3" Grid.Column="1"
+         Margin="10,0"
+         FontSize="17"
+         FontWeight="Bold"
+         Content="Regresar-> Menu" Click="btnVolver_Click"
+         />
+
+
+    </Grid>
+</Window>

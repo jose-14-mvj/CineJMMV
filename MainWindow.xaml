@@ -50,7 +50,7 @@
                  />
 
         <Label x:Name="lblPassword"
-               Content="Contraseñafgdgdfdd:"
+               Content="hola mundo:"
                FontSize="20"
                Grid.Row="2" Margin="0,24,32,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
         <PasswordBox x:Name="txtPasword"
